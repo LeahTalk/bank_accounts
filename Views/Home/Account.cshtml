@@ -1,0 +1,41 @@
+@model BankAccounts.Models.Transaction
+<h1>Welcome, @ViewBag.curUser.FirstName</h1>
+<a style = 'display: block;' href = '/logout'>Logout</a>
+<p style = 'display: inline'>Current Balance: $@ViewBag.curUser.Balance</p>
+<p style = 'display: inline'>.00</p>
+<form asp-action="CreateTransaction" asp-controller="Home" method="post">
+    <p>Deposit/Withdraw: </p>
+    <span asp-validation-for="Amount"></span>
+    <p></p>
+    <select asp-for="Amount">
+        <option value="-500">-500</option>
+        <option value="-400">-400</option>
+        <option value="-300">-300</option>
+        <option value="-200">-200</option>
+        <option value="-100">-100</option>
+        <option value="100">100</option>
+        <option value="200">200</option>
+        <option value="300">300</option>
+        <option value="400">400</option>
+        <option value="500">500</option>
+    </select>
+    <input type="submit" value="Submit" class = 'btn btn-primary'>
+</form>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Amount</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+      @{
+          foreach(Transaction transaction in ViewBag.curUser.CreatedTransactions) {
+            <tr>
+                <td>@transaction.Amount</td>
+                <td>@transaction.CreatedAt.ToString("MMM dd yyyy")</td>
+            </tr>
+          }
+      }
+  </tbody>
+</table>

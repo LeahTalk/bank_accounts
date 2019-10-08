@@ -1,0 +1,34 @@
+﻿@model BankAccounts.Models.User
+
+<h1>Register</h1>
+<a href = '/login'>Login</a>
+<form asp-action="Register" asp-controller="Home" method="post">
+    <div class = 'formSection'>
+        <span asp-validation-for="FirstName"></span>
+        <p></p>
+        <label asp-for="FirstName"></label>
+        <input type="text" asp-for="FirstName" style = 'display: block'>
+        <p></p>
+        <span asp-validation-for="LastName"></span>
+        <p></p>
+        <label asp-for="LastName"></label>
+        <input type="text" asp-for="LastName" style = 'display: block'>
+        <span asp-validation-for="Email"></span>
+        <p></p>
+        <label asp-for="Email"></label>
+        <input type="text" asp-for="Email" style = 'display: block'>
+    </div>
+    <div class = 'formSection'>
+        <span asp-validation-for="Password"></span>
+        <p></p>
+        <label asp-for="Password"></label>
+        <input type="password" asp-for="Password" style = 'display: block'>
+        <p></p>
+        <span asp-validation-for="Confirm"></span>
+        <p></p>
+        <label asp-for="Confirm"></label>
+        <input type="password" asp-for="Confirm" style = 'display: block'>
+        <p></p>
+        <input class = 'btn btn-primary' type="submit" value="Submit">
+    </div>
+</form>

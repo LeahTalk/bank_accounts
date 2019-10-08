@@ -1,0 +1,19 @@
+@model BankAccounts.Models.LoginUser
+
+<h1>Login</h1>
+<a href = '/'>Register</a>
+<form asp-action="ProcessLogin" asp-controller="Home" method="post">
+    <div class = 'formSection'>
+        <span asp-validation-for="Email"></span>
+        <p></p>
+        <label asp-for="Email"></label>
+        <input type="text" asp-for="Email" style = 'display: block'>
+        <p></p>
+        <span asp-validation-for="Password"></span>
+        <p></p>
+        <label asp-for="Password"></label>
+        <input type="password" asp-for="Password" style = 'display: block'>
+        <p></p>
+        <input class = 'btn btn-primary' type="submit" value="Submit">
+    </div>
+</form>
